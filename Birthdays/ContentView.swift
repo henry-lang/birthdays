@@ -11,6 +11,8 @@ struct ContentView: View {
     @State var date = Date()
     @State var selected = 0
     @State var addingBirthday = false
+    @State var selectedBirthday: Birthday? = nil
+    @State var editingBirthday = false
     
     @FetchRequest(
         entity: Birthday.entity(),
@@ -31,8 +33,18 @@ struct ContentView: View {
                     
                     List {
                         ForEach(birthdays, id: \.self) { birthday in
-                            if let contact = birthday.contact() {
-                                Text(contact.getFullName())
+                            birthday.contact().map { contact in
+                                Button(action: {
+                                    selectedBirthday = birthday
+                                    editingBirthday.toggle()
+                                }) {
+                                    HStack {
+                                        Text(contact.getFullName())
+                                        // SwiftUI Moment
+                                        (selectedBirthday == nil) ? Text("").hidden() : Text("").hidden()
+                                    }
+                                }
+                                .foregroundColor(.primary)
                             }
                         }
                     }
@@ -61,7 +73,11 @@ struct ContentView: View {
                 }
             }
         }
+        .sheet(isPresented: $editingBirthday) {
+            EditBirthday(birthday: Binding($selectedBirthday)!)
+        }
         .navigationViewStyle(StackNavigationViewStyle())
+        
     }
 }
 

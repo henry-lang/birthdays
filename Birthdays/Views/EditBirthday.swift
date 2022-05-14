@@ -5,18 +5,10 @@ struct EditBirthday: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var managedObjectContext
     
-    let birthday: Birthday
-    
+    @Binding var birthday: Birthday
     @State var showPicker = false
     @State var contact: CNContact?
     @State var day: Date = Date()
-    
-    init(birthday: Birthday) {
-        self.birthday = birthday
-        
-        contact = birthday.contact()
-        day = birthday.day!
-    }
     
     var body: some View {
         NavigationView {
