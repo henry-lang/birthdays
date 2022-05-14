@@ -40,7 +40,7 @@ struct ContentView: View {
                                 }) {
                                     HStack {
                                         Text(contact.getFullName())
-                                        // SwiftUI Moment
+                                        // SwiftUI Moment - If I don't include this line the state doesn't update!
                                         (selectedBirthday == nil) ? Text("").hidden() : Text("").hidden()
                                     }
                                 }
@@ -74,7 +74,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $editingBirthday) {
-            EditBirthday(birthday: Binding($selectedBirthday)!)
+            EditBirthday(selectedBirthday!)
         }
         .navigationViewStyle(StackNavigationViewStyle())
         

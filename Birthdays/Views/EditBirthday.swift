@@ -5,10 +5,16 @@ struct EditBirthday: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var managedObjectContext
     
-    @Binding var birthday: Birthday
+    let birthday: Birthday
     @State var showPicker = false
     @State var contact: CNContact?
     @State var day: Date = Date()
+    
+    init(_ edit: Birthday) {
+        self.birthday = edit
+        _contact = State(initialValue: birthday.contact())
+        _day = State(initialValue: birthday.day!)
+    }
     
     var body: some View {
         NavigationView {
@@ -17,6 +23,8 @@ struct EditBirthday: View {
                 Form {
                     Button(role: .destructive, action: {
                         BirthdayActions.delete(birthday, using: managedObjectContext)
+                        
+                        dismiss()
                     }) {
                         Text("Delete Birthday")
                     }
@@ -26,9 +34,7 @@ struct EditBirthday: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        dismiss()
-                    }) {
+                    Button(action: { dismiss() }) {
                         Text("Cancel")
                     }
                 }
