@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA3E3CE9282F4D300052FB0F /* InfoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E3CE8282F4D300052FB0F /* InfoForm.swift */; };
+		BA3E3CEB282F4FB30052FB0F /* EditBirthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E3CEA282F4FB30052FB0F /* EditBirthday.swift */; };
+		BA3E3CED282F52BA0052FB0F /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E3CEC282F52BA0052FB0F /* Extentions.swift */; };
 		BA69B7F0282C6FDA008206F6 /* ContactPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA69B7EF282C6FDA008206F6 /* ContactPicker.swift */; };
 		BA69B7F9282CB273008206F6 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA69B7F8282CB273008206F6 /* About.swift */; };
 		BA8B87A0282EC6D600383C74 /* BirthdayActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8B879F282EC6D600383C74 /* BirthdayActions.swift */; };
@@ -38,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		BA3E3CE7282F48A40052FB0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BA3E3CE8282F4D300052FB0F /* InfoForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoForm.swift; sourceTree = "<group>"; };
+		BA3E3CEA282F4FB30052FB0F /* EditBirthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBirthday.swift; sourceTree = "<group>"; };
+		BA3E3CEC282F52BA0052FB0F /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		BA69B7EF282C6FDA008206F6 /* ContactPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPicker.swift; sourceTree = "<group>"; };
 		BA69B7F8282CB273008206F6 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		BA8B879F282EC6D600383C74 /* BirthdayActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayActions.swift; sourceTree = "<group>"; };
@@ -92,6 +98,8 @@
 				BA69B7EF282C6FDA008206F6 /* ContactPicker.swift */,
 				BA69B7F8282CB273008206F6 /* About.swift */,
 				BAB93E8B282DBD1C00EC9685 /* AddBirthday.swift */,
+				BA3E3CE8282F4D300052FB0F /* InfoForm.swift */,
+				BA3E3CEA282F4FB30052FB0F /* EditBirthday.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -132,6 +140,7 @@
 				BA69B7F7282CB211008206F6 /* Views */,
 				BAE9635A27D9A7B90049E7D1 /* BirthdaysApp.swift */,
 				BAE9635C27D9A7B90049E7D1 /* ContentView.swift */,
+				BA3E3CEC282F52BA0052FB0F /* Extentions.swift */,
 				BAE9635E27D9A7BA0049E7D1 /* Assets.xcassets */,
 				BAE9636027D9A7BA0049E7D1 /* Preview Content */,
 			);
@@ -279,6 +288,9 @@
 				BA8B87A0282EC6D600383C74 /* BirthdayActions.swift in Sources */,
 				BA69B7F9282CB273008206F6 /* About.swift in Sources */,
 				BAB93E92282DE85000EC9685 /* PersistenceManager.swift in Sources */,
+				BA3E3CED282F52BA0052FB0F /* Extentions.swift in Sources */,
+				BA3E3CE9282F4D300052FB0F /* InfoForm.swift in Sources */,
+				BA3E3CEB282F4FB30052FB0F /* EditBirthday.swift in Sources */,
 				BAE9635D27D9A7B90049E7D1 /* ContentView.swift in Sources */,
 				BA69B7F0282C6FDA008206F6 /* ContactPicker.swift in Sources */,
 				BAB93E8C282DBD1C00EC9685 /* AddBirthday.swift in Sources */,

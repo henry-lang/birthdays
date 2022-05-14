@@ -8,54 +8,33 @@ struct AddBirthday: View {
     @State var showPicker = false
     
     @State var contact: CNContact? = nil
-    @State var fullName: String? = nil
-    @State var date = Date()
+    @State var day = Date()
     
     var body: some View {
         NavigationView {
-            ZStack {
-                ContactPicker(show: $showPicker, onSelect: {
-                    contact = $0
-                    fullName = CNContactFormatter.string(from: $0, style: .fullName)
-                })
-                
-                Form {
-                    Section("Name", content: {
+            InfoForm(contact: $contact, day: $day)
+                .navigationTitle("Add Birthday")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
-                            showPicker.toggle()
+                            dismiss()
                         }) {
-                            Text(fullName ?? "Select Contact")
+                            Text("Cancel")
                         }
-                    })
+                    }
                     
-                    Section("Date", content: {
-                        DatePicker("Birthday", selection: $date, displayedComponents: [.date])
-                            .datePickerStyle(WheelDatePickerStyle())
-                    })
-                }
-            }
-            .navigationTitle("Add Birthday")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Text("Cancel")
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            BirthdayActions.create(for: contact!, on: day, using: managedObjectContext)
+                            
+                            dismiss()
+                        }) {
+                            Text("Add")
+                        }
+                        .disabled(contact == nil)
                     }
                 }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        BirthdayActions.create(for: contact!, on: date, using: managedObjectContext)
-                        
-                        dismiss()
-                    }) {
-                        Text("Add")
-                    }
-                    .disabled(contact == nil)
-                }
-            }
         }
     }
 }

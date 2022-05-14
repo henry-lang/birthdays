@@ -31,7 +31,9 @@ struct ContentView: View {
                     
                     List {
                         ForEach(birthdays, id: \.self) { birthday in
-                            Text(birthday.name())
+                            if let contact = birthday.contact() {
+                                Text(contact.getFullName())
+                            }
                         }
                     }
                 }
