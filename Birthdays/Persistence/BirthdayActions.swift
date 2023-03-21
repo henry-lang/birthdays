@@ -4,7 +4,7 @@ import Contacts
 extension Birthday {
     func contact() -> CNContact? {
         do {
-            let contact = try CNContactStore().unifiedContact(withIdentifier: self.identifier!, keysToFetch: [CNContactFormatter.descriptorForRequiredKeys(for: .fullName)] as [CNKeyDescriptor])
+            let contact = try CNContactStore().unifiedContact(withIdentifier: self.contactIdentifier!, keysToFetch: [CNContactFormatter.descriptorForRequiredKeys(for: .fullName)] as [CNKeyDescriptor])
             
             return contact
         } catch {
@@ -18,31 +18,33 @@ extension Birthday {
 class BirthdayActions {
     public static func create(
         for contact: CNContact,
-        on day: Date,
+        on date: Date,
         using managedObjectContext: NSManagedObjectContext
     ) {
         let newBirthday = Birthday(context: managedObjectContext)
         newBirthday.id = UUID()
-        newBirthday.identifier = contact.identifier
-        newBirthday.day = day
+        newBirthday.contactIdentifier = contact.identifier
+        newBirthday.date = date
         
+        Notifications.sendNotification(for: newBirthday)
         saveChanges(using: managedObjectContext)
     }
     
     public static func edit(
         birthday: Birthday,
         contact: CNContact,
-        day: Date,
+        date: Date,
         using managedObjectContext: NSManagedObjectContext
     ) {
-        birthday.identifier = contact.identifier
-        birthday.day = day
+        birthday.contactIdentifier = contact.identifier
+        birthday.date = date
         
         saveChanges(using: managedObjectContext)
     }
     
     public static func delete(_ birthday: Birthday, using managedObjectContext: NSManagedObjectContext) {
         managedObjectContext.delete(birthday)
+        Notifications.cancelNotification(for: birthday)
         
         saveChanges(using: managedObjectContext)
     }

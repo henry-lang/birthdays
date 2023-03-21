@@ -4,6 +4,10 @@ import SwiftUI
 struct BirthdaysApp: App {
     let managedObjectContext = PersistenceManager().managedObjectContext
     
+    init() {
+        Notifications.requestPermissions()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

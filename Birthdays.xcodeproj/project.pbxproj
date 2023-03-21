@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8208F38929C8D83500EACE2B /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8208F38829C8D83500EACE2B /* Notifications.swift */; };
 		BA3E3CE9282F4D300052FB0F /* InfoForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E3CE8282F4D300052FB0F /* InfoForm.swift */; };
 		BA3E3CEB282F4FB30052FB0F /* EditBirthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E3CEA282F4FB30052FB0F /* EditBirthday.swift */; };
 		BA3E3CED282F52BA0052FB0F /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E3CEC282F52BA0052FB0F /* Extentions.swift */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8208F38829C8D83500EACE2B /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		8208F38A29C93AAE00EACE2B /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		BA3E3CE7282F48A40052FB0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BA3E3CE8282F4D300052FB0F /* InfoForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoForm.swift; sourceTree = "<group>"; };
 		BA3E3CEA282F4FB30052FB0F /* EditBirthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBirthday.swift; sourceTree = "<group>"; };
@@ -84,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8208F38729C8D7F200EACE2B /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				8208F38829C8D83500EACE2B /* Notifications.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		BA3E3CE6282F3EBC0052FB0F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +146,7 @@
 		BAE9635927D9A7B90049E7D1 /* Birthdays */ = {
 			isa = PBXGroup;
 			children = (
+				8208F38729C8D7F200EACE2B /* Notifications */,
 				BA3E3CE7282F48A40052FB0F /* Info.plist */,
 				BAB93E90282DE7CC00EC9685 /* Persistence */,
 				BA69B7F7282CB211008206F6 /* Views */,
@@ -285,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8208F38929C8D83500EACE2B /* Notifications.swift in Sources */,
 				BA8B87A0282EC6D600383C74 /* BirthdayActions.swift in Sources */,
 				BA69B7F9282CB273008206F6 /* About.swift in Sources */,
 				BAB93E92282DE85000EC9685 /* PersistenceManager.swift in Sources */,
@@ -624,9 +637,10 @@
 		BAB93E8D282DE59000EC9685 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				8208F38A29C93AAE00EACE2B /* Model 2.xcdatamodel */,
 				BAB93E8E282DE59000EC9685 /* Model.xcdatamodel */,
 			);
-			currentVersion = BAB93E8E282DE59000EC9685 /* Model.xcdatamodel */;
+			currentVersion = 8208F38A29C93AAE00EACE2B /* Model 2.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

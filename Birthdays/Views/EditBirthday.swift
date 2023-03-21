@@ -8,18 +8,18 @@ struct EditBirthday: View {
     let birthday: Birthday
     @State var showPicker = false
     @State var contact: CNContact?
-    @State var day: Date = Date()
+    @State var date: Date = Date()
     
     init(_ edit: Birthday) {
         self.birthday = edit
         _contact = State(initialValue: birthday.contact())
-        _day = State(initialValue: birthday.day!)
+        _date = State(initialValue: birthday.date!)
     }
     
     var body: some View {
         NavigationView {
             VStack {
-                InfoForm(contact: $contact, day: $day)
+                InfoForm(contact: $contact, day: $date)
                 Form {
                     Button(role: .destructive, action: {
                         BirthdayActions.delete(birthday, using: managedObjectContext)
@@ -41,11 +41,10 @@ struct EditBirthday: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        BirthdayActions.edit(birthday: birthday, contact: contact!, day: day, using: managedObjectContext)
-                        
+                        BirthdayActions.edit(birthday: birthday, contact: contact!, date: date, using: managedObjectContext)
                         dismiss()
                     }) {
-                        Text("Edit")
+                        Text("Done")
                     }
                     .disabled(contact == nil)
                 }
