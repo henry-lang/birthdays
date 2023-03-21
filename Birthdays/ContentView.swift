@@ -4,7 +4,7 @@ import CoreData
 import AddressBook
 
 struct ContentView: View {
-    static let dateSortDescriptor = NSSortDescriptor(key: #keyPath(Birthday.date), ascending: false)
+    static let dateSortDescriptor = NSSortDescriptor(keyPath: \Birthday.date, ascending: false)
     
     @Environment(\.managedObjectContext) var managedObjectContext
     
